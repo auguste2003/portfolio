@@ -57,3 +57,52 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+
+## Structure des dossiers / composants Angular
+
+```
+src/
+├── app/
+│   ├── core/                        # Services globaux, auth, guards
+│   │   ├── auth/                    # Auth Firebase, guards
+│   │   ├── services/                # Firestore, ChatService, etc.
+│   │   └── interceptors/           # (si besoin plus tard)
+│
+│   ├── shared/                      # Composants UI réutilisables
+│   │   ├── navbar/
+│   │   ├── footer/
+│   │   ├── card-project/
+│   │   ├── button/
+│   │   └── ...
+│
+│   ├── pages/
+│   │   ├── home/                    # Page d’accueil
+│   │   │   ├── hero-section/
+│   │   │   ├── services-section/
+│   │   │   └── testimonial-section/
+│   │   ├── projects/
+│   │   │   ├── project-list/
+│   │   │   └── project-detail/
+│   │   └── not-found/              # 404
+│
+│   ├── admin/                       # Back-office
+│   │   ├── dashboard/
+│   │   ├── projects-management/
+│   │   ├── blogs-management/
+│   │   ├── news-management/
+│   │   └── auth/                   # Page login admin
+│
+│   ├── chat/                        # Chat client
+│   │   ├── chat-widget/            # (flottant sur toutes les pages)
+│   │   └── chat-window/
+│
+│   ├── app-routing.module.ts       # Routing centralisé
+│   └── app.component.ts
+│
+├── environments/
+│   ├── environment.ts
+│   └── environment.prod.ts
+
+```
